@@ -1,6 +1,25 @@
 # Altrata
 PySpark Data Dev Test - Taxi journeys January 2021
 
+## Updated error in gold File 2 - Vendors 'The total fare by vendor' calculation. 
+Initial understanding was count of total fare rides by vendor however it is now clear the request was Total fare (Amount) by Vendor.
+
+Following updates:
+
+- 03 gold.ipynb:
+  - Update: F.sum(F.col('TotalAmount')).cast('decimal(18,2)').alias('The total fare by vendor'),
+  - Previous: F.count(F.col('VendorId')).alias('The total fare by vendor'),
+  
+- 04 gold test.ipynb
+  - Update: aggregation='sum', (related to the 'The total fare by vendor' test)
+  - Previous: aggregation='count', (related to the 'The total fare by vendor' test)
+
+- 04 gold test.ipynb
+  - Additionally included missing test for 'The average tips by vendor', added following code:
+
+  - gold.run_test(aggregation='avg',filter_value=filter_item_by,silver_table_column_filter='VendorId',  silver_column_collection='TipAmount',gold_table_name='Vendors',gold_table_column_filter='VendorId',gold_column_collection='The average tips by vendor',)
+  
+
 ## File Structure
 - PipelineData
   - Bronze

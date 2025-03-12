@@ -258,5 +258,6 @@ class Gold(BasePipeline):
         print(f"{'-'*50}")
         print(f"Validating the '{gold_table_name}' table and filtering the column '{silver_table_column_filter}' = '{filter_value}'")
         print(f"The gold '{gold_table_name}' filtering the column '{gold_table_column_filter}' = '{filter_value}'")
+        print(f"Validating the gold column value '{gold_column_collection}'")
         print(f"{'Silver':6s}: {silver_value} ({aggregation})")
         print(f"{'Gold':6s}: {gold_value} ({aggregation})")

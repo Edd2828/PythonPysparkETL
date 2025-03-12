@@ -5,4 +5,4 @@ services:
     ports:
       - "8888:8888"
     volumes:
-      - C:/PythonAltrata/notebooks:/home/jovyan/work
+      - C:/PythonPysparkETL/notebooks:/home/jovyan/work
